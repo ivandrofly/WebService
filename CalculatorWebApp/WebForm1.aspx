@@ -39,6 +39,11 @@
                         <asp:Button ID="btnAdd" runat="server" Text="Button" OnClick="btnAdd_Click" />
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2">
+                        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                    </td>
+                </tr>
             </table>
         </div>
     </form>

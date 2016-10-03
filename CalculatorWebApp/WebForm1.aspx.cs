@@ -16,9 +16,12 @@ namespace CalculatorWebApp
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            var ws = new CalculatorService.CalculatorWebServiceSoapClient();
-            int result = ws.Add(Convert.ToInt32(textFirstNumber.Text), int.Parse(secondNumber.Text));
+            var client = new CalculatorService.CalculatorWebServiceSoapClient();
+            int result = client.Add(Convert.ToInt32(textFirstNumber.Text), int.Parse(secondNumber.Text));
             labelResult.Text = result.ToString();
+            GridView1.DataSource = client.GetCalculations();
+            GridView1.DataBind();
+            GridView1.HeaderRow.Cells[0].Text = "Recent calculations";
         }
     }
 }
